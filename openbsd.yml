@@ -1,0 +1,26 @@
+---
+- hosts:
+    - zenbook
+    - phenom
+  tasks:
+    - name: install packages
+      openbsd_pkg:
+        name: '{{ item }}'
+        state: present
+      with_items:
+        - vim
+        - git
+        - firefox
+        - thunderbird
+    - name: enable apmd
+      lineinfile:
+        dest: /etc/rc.conf.local
+        line: apmd_flags=-A
+    - name: enable doas for wheel group
+      lineinfile:
+        dest: /etc/doas.conf
+        line: permit :wheel
+    - name: set installpath
+      lineinfile:
+        dest: /etc/pkg.conf
+        line: installpath = http://ftp.nluug.nl/pub/OpenBSD/%c/packages/%a/
