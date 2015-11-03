@@ -1,0 +1,3 @@
+[submodule "roles/ruby"]
+	path = roles/ruby
+	url = git@github.com:ivaldi/ansible-ruby
