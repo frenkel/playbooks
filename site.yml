@@ -1,0 +1,14 @@
+---
+- hosts: all
+  vars:
+    users:
+      - name: frank
+        groups_openbsd: wheel
+        ssh_keys: []
+  roles:
+    - users
+  tasks:
+    - name: enable apmd
+      lineinfile:
+        dest: /etc/rc.conf.local
+        line: apmd_flags=-A

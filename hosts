@@ -1,2 +1,5 @@
-zenbook ansible_connection=local ansible_python_interpreter=/usr/local/bin/python2.7
-phenom ansible_connection=local ansible_python_interpreter=/usr/local/bin/python2.7
+[openbsd]
+zenbook
+phenom
+apu
+ks.frankgroeneveld.nl
